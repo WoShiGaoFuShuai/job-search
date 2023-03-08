@@ -1,7 +1,7 @@
 <template>
   <header class="w-full text-sm">
     <div class="fixed top-0 left-0 h-16 w-full bg-white">
-      <div class="border-brand-gray-1 mx-auto flex h-full flex-nowrap border-b px-8">
+      <div class="mx-auto flex h-full flex-nowrap border-b border-brand-gray-1 px-8">
         <a
           href="/"
           class="flex h-full items-center text-xl"
@@ -25,18 +25,41 @@
             </li>
           </ul>
         </nav>
+
+        <div class="ml-auto flex h-full items-center">
+          <ProfileImage v-if="isLoggedIn" />
+          <ActionButton
+            v-else
+            text="Sign in"
+            type="primary"
+            @click="loginUser"
+          />
+        </div>
       </div>
     </div>
   </header>
 </template>
 
 <script>
+import ActionButton from "@/components/ActionButton.vue"
+import ProfileImage from "@/components/ProfileImage.vue"
+
 export default {
   name: "MainNav",
+  components: {
+    ActionButton,
+    ProfileImage
+  },
   data() {
     return {
       company: "Mali Careers",
-      menuItems: ["Teams", "Location", "Life at the company", "How we fire", "Students"]
+      menuItems: ["Teams", "Location", "Life at the company", "How we fire", "Students"],
+      isLoggedIn: false
+    }
+  },
+  methods: {
+    loginUser() {
+      this.isLoggedIn = true
     }
   }
 }
