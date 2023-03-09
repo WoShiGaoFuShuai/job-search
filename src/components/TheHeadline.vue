@@ -1,10 +1,11 @@
 <template>
   <section>
-    <h1>
-      <span :class="actionClasses">{{ action }}</span> <br />
+    <h1 class="mb-14 text-8xl font-bold tracking-tighter">
+      <span :class="actionClasses">{{ action }}</span>
+      <br />
       for everyone!
     </h1>
-    <h2>Find your next job at Mali Corp.</h2>
+    <h2 class="text-3xl font-light">Find your next job at Mali Corp.</h2>
   </section>
 </template>
 
