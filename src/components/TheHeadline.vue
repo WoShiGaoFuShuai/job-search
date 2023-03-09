@@ -29,7 +29,6 @@ export default {
   },
   created() {
     this.changeAction()
-    console.log(this.interval)
   },
   beforeUnmount() {
     clearInterval(this.interval)
