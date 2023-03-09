@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import nextElementInList from "@/utils/nextElementInList.js"
+
 export default {
   name: "TheHeadline",
   data() {
@@ -37,9 +39,7 @@ export default {
     changeAction() {
       const actions = ["Build", "Create", "Design", "Code"]
       this.interval = setInterval(() => {
-        const currentIndex = actions.indexOf(this.action) //0
-        const nextIndex = (currentIndex + 1) % 4 // 1
-        this.action = actions[nextIndex]
+        this.action = nextElementInList(actions, this.action)
       }, 3000)
     }
   }
