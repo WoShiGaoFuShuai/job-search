@@ -3,6 +3,7 @@
     <font-awesome-icon
       :icon="['fas', 'search']"
       class="ml-4 mr-3"
+      alt="search icon jobsearch"
     />
 
     <div class="flex h-full flex-1">
@@ -12,11 +13,9 @@
           for="role"
           >Role</label
         >
-        <input
+        <TextInput
           id="role"
           v-model="role"
-          type="text"
-          class="text-md h-full w-full border-0 pr-3 font-normal focus:outline-none"
           placeholder="Software engineer"
         />
       </div>
@@ -32,11 +31,9 @@
           for="location"
           >Where</label
         >
-        <input
+        <TextInput
           id="location"
           v-model="location"
-          type="text"
-          class="text-md h-full w-full border-0 pl-3 font-normal focus:outline-none"
           placeholder="Los Angeles"
         />
       </div>
@@ -52,11 +49,13 @@
 
 <script>
 import ActionButton from "@/components/Shared/ActionButton.vue"
+import TextInput from "@/components/Shared/TextInput.vue"
 
 export default {
   name: "JobSearchForm",
   components: {
-    ActionButton
+    ActionButton,
+    TextInput
   },
   data() {
     return {
