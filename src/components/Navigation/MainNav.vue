@@ -2,11 +2,11 @@
   <header :class="['w-full', 'text-sm', headerHeightClass]">
     <div class="fixed top-0 left-0 h-16 w-full bg-white">
       <div class="mx-auto flex h-full flex-nowrap border-b border-brand-gray-1 px-8">
-        <a
-          href="/"
+        <RouterLink
+          :to="{ name: 'Home' }"
           class="flex h-full items-center text-xl"
         >
-          {{ company }}</a
+          {{ company }}</RouterLink
         >
 
         <nav class="ml-12">
