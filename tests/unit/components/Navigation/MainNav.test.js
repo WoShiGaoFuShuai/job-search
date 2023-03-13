@@ -6,8 +6,13 @@ import MainNav from "@/components/Navigation/MainNav.vue"
 
 describe("MainNav", () => {
   const renderMainNav = () => {
+    const $route = { name: "Home" }
+
     render(MainNav, {
       global: {
+        mocks: {
+          $route
+        },
         stubs: {
           FontAwesomeIcon: true,
           RouterLink: RouterLinkStub
@@ -15,6 +20,7 @@ describe("MainNav", () => {
       }
     })
   }
+
   it("displays company name", () => {
     renderMainNav()
     const companyName = screen.getByText("Mali Careers")
@@ -22,7 +28,14 @@ describe("MainNav", () => {
   })
 
   it("renders menu items in the navbar", () => {
-    const arrayInMainNav = ["Teams", "Location", "Life at the company", "How we fire", "Students"]
+    const arrayInMainNav = [
+      "Teams",
+      "Location",
+      "Life at the company",
+      "How we fire",
+      "Students",
+      "Jobs"
+    ]
 
     renderMainNav()
     const navMenuItems = screen.getAllByRole("listitem")
